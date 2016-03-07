@@ -1,0 +1,16 @@
+insert into agencia values(0,341,'4640','AGENCIA','x');
+insert into cliente values(0, 'Jonas Dias','22754149830','36684989x','X');
+insert into conta values(0,4640,341,1111,1,10.0,false);
+insert into conta values(0,4640,341,99900,1,10.0,false);
+insert into banco values (0,'341','BANCO ITAU S.A.' );
+insert into movimento values(0,1,5.0,1111,4640,341,  '2015-11-05');
+insert into movimento values(0,0,10.0,99900,4640,341,'2015-11-07');
+insert into movimento values(0,1,-5.0,99900,4640,341,'2015-10-10');
+insert into movimento values(0,1,50.0,99900,4640,341,'2015-09-18');
+insert into movimento values(0,1,25.0,99900,4640,341,'2015-12-21');
+insert into movimento values(0,1,5.0,1111,4640,341,  '2015-07-30');
+insert into movimento values(0,0,10.0,99900,4640,341,'2015-05-15');
+insert into movimento values(0,1,-5.0,99900,4640,341,'2015-09-17');
+insert into movimento values(0,1,50.0,99900,4640,341,'2015-10-28');
+insert into movimento values(0,1,25.0,99900,4640,341,'2015-11-30');
+commit;
