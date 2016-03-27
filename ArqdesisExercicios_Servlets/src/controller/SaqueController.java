@@ -1,0 +1,89 @@
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.jndi.ldap.Connection;
+
+import model.Saque;
+
+/**
+ * Servlet implementation class SaqueController
+ */
+@WebServlet("/efetuar_saque.do")
+public class SaqueController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SaqueController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String pAcao = request.getParameter("acao");
+		String pBanco = request.getParameter("banco");
+		String pAgencia = request.getParameter("agencia");
+		String pConta = request.getParameter("conta");
+		String pValor = request.getParameter("valor");
+		String pData = request.getParameter("data");
+		double valor;
+		int agencia,conta, banco;
+		try{
+			valor = Double.parseDouble(pValor);
+		}catch(Exception e ){
+			valor = 0.0;
+		}
+		try{
+			agencia = Integer.parseInt(pAgencia);
+		}catch(Exception e ){
+			agencia = 0;
+		}
+		try{
+			conta = Integer.parseInt(pConta);
+		}catch(Exception e ){
+			conta = 0;
+		}
+		try{
+			banco = Integer.parseInt(pBanco);
+		}catch(Exception e ){
+			banco = 0;
+		}
+		
+		if(pAcao.equals("Sacar")){
+			Saque saque = new Saque(0, valor);
+			try {
+				saque.inserirSaque(0, valor, conta, agencia, banco, pData);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			PrintWriter out = response.getWriter();
+			out.println("<html><head><title>Saque	</title></head><body>");
+			out.println("Efetuado saque no valor de: ");
+			out.println(saque.getValor()+"<br>");
+			out.println("</body></html>");
+		}
+		
+	}
+
+}
