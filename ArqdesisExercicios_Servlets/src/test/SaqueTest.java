@@ -31,7 +31,7 @@ public class SaqueTest {
 	public void inserirTest(){
 		conn = new ConexaoBD();
 		try {
-			saque.inserirSaque(conn.obtemConexao(), 0, 10.0, 99900, 4640, 341, "20-03-2016");
+			saque.inserirSaque(0, 10.0, 99900, 4640, 341, "20-03-2016");
 		} catch (Exception e) {
 			fail("Falha inserir saque");
 		}
@@ -40,7 +40,7 @@ public class SaqueTest {
 	@Test
 	public void qtdTest(){
 		try {
-			assertNotNull("Não nulo para qtd de operações no banco", saque.selectQutddOperacao(conn.obtemConexao(), 0, "20-03-2016"));
+			assertNotNull("Não nulo para qtd de operações no banco", saque.selectQutddOperacao(0, "20-03-2016"));
 		} catch (SQLException e) {
 			fail("falha no metodo qtd operação");
 		}
@@ -48,7 +48,7 @@ public class SaqueTest {
 	@Test
 	public void inserirOperacaoTest(){
 		try {
-			saque.insertOperacao(conn.obtemConexao(), 0, "20-03-2016", 1);
+			saque.insertOperacao(0, "20-03-2016", 1);
 		} catch (SQLException e) {
 			fail("falha no metodo inserir operação");
 		}
@@ -56,7 +56,7 @@ public class SaqueTest {
 	@Test
 	public void updateOperacaoTest(){
 		try {
-			saque.updateOperacao(conn.obtemConexao(), 0, "20-03-2016", 1);
+			saque.updateOperacao(0, "20-03-2016", 1);
 		} catch (SQLException e) {
 			fail("falha no metodo atualizar operação");
 		}
@@ -64,12 +64,12 @@ public class SaqueTest {
 	@Test
 	public void selectOperacaoEQtd(){
 		try {
-			assertNotNull(saque.selectOperacao(conn.obtemConexao(), 0, "20-03-2016"));
+			assertNotNull(saque.selectOperacao(0, "20-03-2016"));
 		} catch (SQLException e) {
 			fail("falha no metodo selecionar operação");
 		}
 		try {
-			assertNotNull(saque.selectQutddOperacao(conn.obtemConexao(), 0, "20-03-2016"));
+			assertNotNull(saque.selectQutddOperacao(0, "20-03-2016"));
 		} catch (SQLException e) {
 			fail("falha no metodo selecionar quantidade de  operações");
 		}

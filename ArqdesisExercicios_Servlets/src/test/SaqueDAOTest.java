@@ -20,14 +20,14 @@ ConexaoBD conn;
 	@Before
 	public void setUp() throws Exception {
 		dao = new SaqueDAO();
-		to = new SaqueTO(null, 0, 10.0, 99900, 4640, 341, "2015-11-30");
+		to = new SaqueTO(0, 10.0, 99900, 4640, 341, "2015-11-30");
 		conn = new ConexaoBD();
 	}
 
 	@Test
 	public void test() {
 		try {
-			dao.inserirSaque(conn.obtemConexao(), 0, 1);
+			dao.inserirSaque(0, 1);
 		} catch (SQLException e1) {
 			fail("Falha ao obter conexão");
 		}

@@ -14,7 +14,6 @@ private static final double DELTA = 1e-15;
 	@Before
 	public void setUp() throws Exception {
 		to = new SaqueTO();
-		to.setConn(null);
 		to.setData("20-03-2016");
 		to.setIdMovimento(1);
 		to.setNumAgencia(4640);
@@ -27,7 +26,7 @@ private static final double DELTA = 1e-15;
 
 	@Test
 	public void getsTest() {
-		assertEquals("Connection", null, to.getConn());
+		assertEquals("Connection", null);
 		assertEquals("Data", "20-03-2016", to.getData());
 		assertEquals("Id Movimento",1, to.getIdMovimento());
 		assertEquals("Agencia", 4640, to.getNumAgencia());
@@ -39,7 +38,6 @@ private static final double DELTA = 1e-15;
 	}
 	public void setsTest(){
 		novo = new SaqueTO();
-		novo.setConn(to.getConn());
 		novo.setData(to.getData());
 		novo.setIdMovimento(to.getIdMovimento());
 		novo.setNumAgencia(to.getNumAgencia());
@@ -49,7 +47,6 @@ private static final double DELTA = 1e-15;
 		novo.setTipoMovimento(to.getTipoMovimento());
 		novo.setValor(to.getValor());
 		
-		assertEquals("Set conn",    to.getConn(),          novo.getConn());
 		assertEquals("Data",        to.getData(),          novo.getData());
 		assertEquals("Id Movimento",to.getIdMovimento(),   novo.getIdMovimento());
 		assertEquals("Agencia",     to.getNumAgencia(),    novo.getNumAgencia());

@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sun.jndi.ldap.Connection;
 
 import model.Saque;
+import to.SaqueTO;
 
 /**
  * Servlet implementation class SaqueController
@@ -69,19 +71,18 @@ public class SaqueController extends HttpServlet {
 		}catch(Exception e ){
 			banco = 0;
 		}
-		
+
+		Saque saque = new Saque(0, valor);
 		if(pAcao.equals("Sacar")){
-			Saque saque = new Saque(0, valor);
 			try {
 				saque.inserirSaque(0, valor, conta, agencia, banco, pData);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Saque	</title></head><body>");
-			out.println("Efetuado saque no valor de: ");
-			out.println(saque.getValor()+"<br>");
-			out.println("</body></html>");
+			SaqueTO to = new SaqueTO(0, valor, conta, agencia, banco, pData);
+			request.setAttribute("saque", to);
+			RequestDispatcher view = request.getRequestDispatcher("Saque.jsp");
+			view.forward(request, response);
 		}
 		
 	}
