@@ -1,13 +1,16 @@
 package to;
 
-
+import java.util.ArrayList;
 
 public class ExtratoTO {
 	private int idMovimento;
 	private int tipoMovimento;
 	private double valor;
 	private String data;
-	public ExtratoTO(){}
+	private ArrayList<ExtratoTO> extrato;
+	public ExtratoTO(){
+		this.extrato = new ArrayList<>();
+	}
 
 	public ExtratoTO(int idMovimento, int tipoMovimento, double valor, String data) {
 		this.idMovimento = idMovimento;
@@ -39,4 +42,13 @@ public class ExtratoTO {
 	public void setData(String data) {
 		this.data = data;
 	}
+
+	public ArrayList<ExtratoTO> getExtrato() {
+		return extrato;
+	}
+
+	public void setExtrato(ArrayList<ExtratoTO> extrato) {
+		this.extrato = extrato;
+	}
+	
 }
