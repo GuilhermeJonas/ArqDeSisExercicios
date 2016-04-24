@@ -28,7 +28,7 @@
 						<h4>
 						<center>
 							Efetuado saque no valor de:
-								<b>${saque.valor}</b>
+							<b>${saque.valor}</b>
 							da conta
 							<b>${saque.numConta}</b>
 							e banco

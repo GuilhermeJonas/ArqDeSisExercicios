@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import model.Saque;
 import to.SaqueTO;
@@ -72,6 +71,8 @@ public class SaqueController extends HttpServlet {
 		}
 
 		Saque saque = new Saque(0, valor);
+		HttpSession session = request.getSession();
+		
 		if(pAcao.equals("Sacar")){
 			try {
 				saque.inserirSaque(0, valor, conta, agencia, banco, pData);
@@ -79,7 +80,7 @@ public class SaqueController extends HttpServlet {
 				e.printStackTrace();
 			}
 			SaqueTO to = new SaqueTO(0, valor, conta, agencia, banco, pData);
-			request.setAttribute("saque", to);
+			session.setAttribute("saque", to);
 			RequestDispatcher view = request.getRequestDispatcher("Saque.jsp");
 			view.forward(request, response);
 		}
