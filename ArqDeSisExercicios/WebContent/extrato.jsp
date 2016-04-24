@@ -14,7 +14,7 @@
 </head>
 <body>
 <c:import url="menu.jsp" />
-	<jsp:useBean id="lista" class="to.ExtratoTO" scope="request" />
+	<c:if test="${not empty lista}">
 	<div id="list" class="row">
 
                     <div class="table-responsive col-md-12">
@@ -29,7 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="extrato" items="${lista.extrato}">
+                            <c:forEach var="extrato" items="${lista}">
                              <tr>
 							 	<td> ${extrato.idMovimento }</td>
 							 	<td> ${extrato.tipoMovimento}</td>
@@ -41,7 +41,7 @@
 						</table>	 
 					</div>
                 </div>
-                 <div id="bottom" class="row">
+               <div id="bottom" class="row">
                     <div class="col-md-12">
                         <!-- paginação ainda não foi implementada -->
                         <ul class="pagination">
@@ -60,8 +60,9 @@
 
                     </div>
                 </div>
+    </c:if>
                 <!-- /#bottom -->
-            </div>
+         
             <!-- /#main -->
             <script src="js/jquery.min.js"></script>
             <script src="js/bootstrap.min.js"></script>

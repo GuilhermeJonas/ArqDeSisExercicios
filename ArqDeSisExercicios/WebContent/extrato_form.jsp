@@ -27,7 +27,7 @@
                     Conta:
                   </div>
                   <div class="col-md-8">
-                    <input type="text" name="banco" size="10">
+                    <input type="text" name="numConta" size="10">
                   </div>
                 </div>
                 <div class="row">

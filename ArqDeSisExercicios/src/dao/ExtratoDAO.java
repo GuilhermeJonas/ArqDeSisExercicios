@@ -16,7 +16,7 @@ public class ExtratoDAO {
 		PreparedStatement stm = null;
 		Connection conn = null;
 		ConexaoBD bd = new ConexaoBD();
-		String query = "select id_movimento, tipo_movimento, valor, data_movimento from movimento where numero_conta = ? and data_movimento > ? order by data_movimento";
+		String query = "select id_movimento, tipo_movimento, valor, data_movimento from movimento where numero_conta = ? and data_movimento >= ? order by data_movimento";
 		try {
 			conn = bd.obtemConexao();
 			conn.setAutoCommit(false);

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Extrato;
 import to.ExtratoTO;
@@ -40,6 +42,7 @@ public class ExtratoController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String pNumConta = request.getParameter("numConta");
 		String pData = request.getParameter("data");
 	//	String pAcao = request.getParameter("acao");
@@ -53,24 +56,17 @@ public class ExtratoController extends HttpServlet {
 		}
 
 		Extrato extrato = new Extrato();
+		ArrayList<ExtratoTO> lista = null;
+		HttpSession session = request.getSession();
 
 		try {
-			extrato.carregarDados(numConta, pData);
+			lista = extrato.carregarDados(numConta, pData);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		};
-
-		ExtratoTO extratoTO = new ExtratoTO();
-		for (Extrato ext : extrato.getExtrato()) {
-			ExtratoTO to = new ExtratoTO();
-			to.setIdMovimento(ext.getIdMovimento());
-			to.setTipoMovimento(ext.getTipoMovimento());
-			to.setValor(ext.getValor());
-			to.setData(ext.getData());
-			extratoTO.getExtrato().add(to);
-		}
-		request.setAttribute("lista", extratoTO);
+		session.setAttribute("lista", lista);
+		
 		RequestDispatcher view = request.getRequestDispatcher("extrato.jsp");
 		view.forward(request, response);
 
