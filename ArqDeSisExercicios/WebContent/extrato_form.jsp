@@ -35,7 +35,7 @@
                     Data:
                   </div>
                   <div class="col-md-8">
-                    <input type="date" name="data" size="10">
+                    <input type="text" name="data" size="10">
                   </div>
                 </div>
                 <div class="row">
