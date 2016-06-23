@@ -16,7 +16,6 @@
 </head>
   <body>
   <c:import url="menu.jsp" />
-
     <div class="col-md-3 col-md-offset-4">
     	<h3>Consultar Extrato</h3>
     	<form action="consultar_extrato.do" method="post">
