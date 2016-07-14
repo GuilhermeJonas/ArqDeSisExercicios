@@ -20,3 +20,17 @@ h1 {
 label{
     margin-top: 10%;
 }
+.texto_id{
+    display: inline-block;
+    border: 1px solid black;
+    color:inherit;
+}
+.id{
+	margin-top:15px;
+	float:right;
+}
+
+#campo-erros{
+    margin-top: 10px;
+    padding-top:15px;
+}

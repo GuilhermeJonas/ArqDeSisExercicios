@@ -22,7 +22,7 @@
 		<div class="col-md-3 col-md-offset-4">
 			<h3>Sacar</h3>
 			<div class="well">
-				<form action="efetuar_saque.do" method="post">
+				<form action="controller.do" method="post">
 					<div class="row">
 						<div class="col-md-4">Banco:</div>
 						<div class="col-md-8">
@@ -58,9 +58,9 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 col-md-offset-2">
-							<input type="submit" name="acao" value="Sacar"
-								class="btn btn-primary"> <input type="reset"
-								class="btn btn-default">
+							<button type="submit" name="command" value="SaqueController"
+								class="btn btn-primary">Sacar</button>
+								<input type="reset" class="btn btn-default">
 						</div>
 					</div>
 				</form>

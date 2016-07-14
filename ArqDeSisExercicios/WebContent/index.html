@@ -53,10 +53,17 @@
                     </div>
                     <!-- Botão -->
                     <div class="row col-md-offset-5">
-                        <div class="col-md-4">
+                        <div class="col-md-4" id="botao-enviar">
                             <br>
                             <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                         </div>
+                    </div>
+                    <div class="row col-md-offset-5">
+                      <div class="col-md-4 alert alert-danger " id="campo-erros" role="alert" style="display:none">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Erro:</span>
+                         Corrija o campo Senha
+                      </div>
                     </div>
                 </form>
             </div>
@@ -64,6 +71,7 @@
     <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="js/validacao.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

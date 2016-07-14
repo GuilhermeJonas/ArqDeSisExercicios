@@ -18,9 +18,9 @@
   <c:import url="menu.jsp" />
     <div class="col-md-3 col-md-offset-4">
     	<h3>Consultar Extrato</h3>
-    	<form action="consultar_extrato.do" method="post">
+    	<form action="controller.do" method="post">
     		  	<div class="well">
-            <form action="efetuar_saque.do" method="post">
+            <form action="controller.do" method="post">
                 <div class="row">
                   <div class="col-md-4">
                     Conta:
@@ -42,7 +42,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-md-offset-2">
-                    <button type="submit" class="btn btn-primary" name="acao" value="Carregar">Carregar</button>
+                    <button type="submit" class="btn btn-primary" name="command" value="ExtratoController">Carregar</button>
                     <input type="reset" class="btn btn-default">
                   </div>
                 </div>

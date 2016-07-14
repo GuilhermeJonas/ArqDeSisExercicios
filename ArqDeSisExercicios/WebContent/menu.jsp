@@ -27,6 +27,7 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li class = "id">Logado como ${nome}</li>
               <li><a href="../navbar-fixed-top/">Sair</a></li>
             </ul>
           </div><!--/.nav-collapse -->

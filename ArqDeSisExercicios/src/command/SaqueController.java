@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,35 +11,11 @@ import javax.servlet.http.HttpSession;
 import model.Saque;
 import to.SaqueTO;
 
-/**
- * Servlet implementation class SaqueController
- */
-@WebServlet("/efetuar_saque.do")
-public class SaqueController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SaqueController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class SaqueController implements Command {
+	@Override
+	public void executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
 		// TODO Auto-generated method stub
-		//doPost(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String pAcao = request.getParameter("acao");
 		String pBanco = request.getParameter("banco");
 		String pAgencia = request.getParameter("agencia");
 		String pConta = request.getParameter("conta");
@@ -73,7 +47,6 @@ public class SaqueController extends HttpServlet {
 		Saque saque = new Saque(0, valor);
 		HttpSession session = request.getSession();
 		
-		if(pAcao.equals("Sacar")){
 			try {
 				saque.inserirSaque(0, valor, conta, agencia, banco, pData);
 			} catch (Exception e) {
@@ -83,7 +56,7 @@ public class SaqueController extends HttpServlet {
 			session.setAttribute("saque", to);
 			RequestDispatcher view = request.getRequestDispatcher("Saque.jsp");
 			view.forward(request, response);
-		}
+		
 		
 	}
 
