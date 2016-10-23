@@ -16,10 +16,10 @@ public class SaqueTest {
 	ConexaoBD conn;
 	Saque saque = null;
 	private static final double DELTA = 1e-15;
-	
+
 	@Before
 	public void setUp() throws Exception {
-		saque = new Saque(0, 10.0);
+		saque = new Saque(0, 10.0,0,0,0,"");
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class SaqueTest {
 			fail("Falha inserir saque");
 		}
 	}
-	
+
 	@Test
 	public void qtdTest(){
 		try {

@@ -17,7 +17,7 @@ public class ExtratoController implements Command {
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
-	
+
 		request.setCharacterEncoding("UTF-8");
 		String pNumConta = request.getParameter("numConta");
 		String pData = request.getParameter("data");
@@ -41,7 +41,7 @@ public class ExtratoController implements Command {
 			e.printStackTrace();
 		};
 		session.setAttribute("lista", lista);
-		
+
 		RequestDispatcher view = request.getRequestDispatcher("extrato.jsp");
 		view.forward(request, response);
 

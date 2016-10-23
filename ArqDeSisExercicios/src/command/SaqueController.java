@@ -44,9 +44,9 @@ public class SaqueController implements Command {
 			banco = 0;
 		}
 
-		Saque saque = new Saque(0, valor);
+		Saque saque = new Saque(0, valor,conta,agencia,banco,pData);
 		HttpSession session = request.getSession();
-		
+
 			try {
 				saque.inserirSaque(0, valor, conta, agencia, banco, pData);
 			} catch (Exception e) {
@@ -56,8 +56,8 @@ public class SaqueController implements Command {
 			session.setAttribute("saque", to);
 			RequestDispatcher view = request.getRequestDispatcher("Saque.jsp");
 			view.forward(request, response);
-		
-		
+
+
 	}
 
 }
