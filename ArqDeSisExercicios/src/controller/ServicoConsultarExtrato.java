@@ -57,6 +57,7 @@ public class ServicoConsultarExtrato extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			out.println(JSonFacade.errorToJSon(e));
+			response.sendError(99, "Erro no Extrato!");
 		}
 	}
 }

@@ -42,6 +42,7 @@ public class ServicoEfetuarSaque extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			out.println(JSonFacade.errorToJSon(e));
+			response.sendError(99, "Erro no Saque");
 		}
 	}
 }
