@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/saque"
+        android:id="@+id/textViewSaque"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_weight="0.12" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/infoSaldo"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/textView2"
+            android:gravity="center_horizontal"
+        android:layout_weight="0.12" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.12"
+        android:gravity="center_vertical|center_horizontal"
+        android:nestedScrollingEnabled="false" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/banco"
+                android:id="@+id/textView3"
+                android:layout_column="1" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextBanco"
+                android:layout_column="2"
+                android:editable="true"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/agencia"
+                android:id="@+id/textView5"
+                android:layout_column="1" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextAgencia"
+                android:layout_column="2"
+                android:editable="true"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/conta"
+                android:id="@+id/textView6"
+                android:layout_column="1" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextConta"
+                android:layout_column="2"
+                android:editable="true"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/valor"
+                android:id="@+id/textValor"
+                android:layout_column="1" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextValor"
+                android:layout_column="2"
+                android:editable="true"
+                android:inputType="numberDecimal" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnProsseguir"
+        android:id="@+id/buttonProsseguir"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.12" />
+
+</LinearLayout>
